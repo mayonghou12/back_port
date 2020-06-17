@@ -1,4 +1,4 @@
-// 查询bridal_veil
+// 查询tour_photo
 
 var query = require('./mysql')
 
@@ -19,8 +19,12 @@ function myImg (data, callback) {
   })
 }
 
+// function sqlimgId(data) {
+//   var sql = 'SELECT * FROM tour_photo LEFT JOIN img ON tour_photo.img_id = img.img_id'
+// }
+
 function myTour (data, callback) {
-  var sql = 'insert into tour_photo(tour_title, img_url, tour_createTime, status) values(?)'
+  var sql = 'INSERT INTO tour_photo(tour_title, img_id, tour_createTime, status) VALUES(?,?,?,?)'
   query(sql, data).then((result) => {
       callback({
           status: 200,
@@ -34,7 +38,24 @@ function myTour (data, callback) {
       })
 }
 
+function getTourData(data, callback) {
+  var sql = "SELECT * FROM tour_photo LEFT JOIN img ON tour_photo.img_id = img.img_id ORDER BY tour_createTime DESC"
+  query(sql).then((result) => {
+    callback({
+      status: 200,
+      data: {
+        list: result
+      }
+    })
+  })
+}
+
+function deleteTour(data, callback) {
+  var 
+}
+
 module.exports = {
   myImg,
-  myTour
+  myTour,
+  getTourData
 }

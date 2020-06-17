@@ -11,7 +11,6 @@ var dbl = {
 
 var pool = mysql.createPool(dbl);
 function query (sql, data) {
-
     return new Promise(function(resolve, reject) {
         pool.getConnection(function(err,connection) {
             if (err) {
@@ -23,12 +22,11 @@ function query (sql, data) {
                     } else {
                         resolve(results)
                     }
-                        connection.release()
+                      connection.release()
                 })
             }
         })
     })
 }
-
 module.exports = query
 

@@ -1,8 +1,8 @@
 // const common = require('../mysql/common')
 
 var common = require('./common')
-var imgData = require('./imgData')
+var TourData = require('./TourData')
 
-var router = Object.assign({}, common, imgData)
+var router = Object.assign({}, common, TourData)
 
 module.exports = router

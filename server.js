@@ -1,5 +1,6 @@
 let express = require('express')
 let router = require('./controller')
+const bodyParser = require('body-parser')
 
 let multer = require('multer')
 
@@ -23,12 +24,19 @@ var storage = multer.diskStorage({
 
 var uploaderMulter = multer({storage: storage})
 
+// 上传图片
 app.post('/upload', uploaderMulter.array('file', 8), router.upload)
 
-// 上传图片的信息
-app.get('/setImgData', router.setImgData)
-   .post('/setImgData', router.setImgData)
+// 上传图片的信息 旅拍图
+app.get('/setTour', router.setTour)
+   .post('/setTour', router.setTour)
+
+// 获取的信息 Tour-photo
+app.get('/getTour', router.getTour)
+   .post('/getTour', router.getTour)
+
+// 删除 tour_photo 信息
 
 
-   
+
 app.listen(3000)
