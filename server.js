@@ -36,6 +36,34 @@ app.get('/getTour', router.getTour)
    .post('/getTour', router.getTour)
 
 // 删除 tour_photo 信息
+// app.get('/deleteTour', router.deleteTour)
+//    .post('/deleteTour', router.deleteTour)
+
+// 上传婚纱图片信息
+app.get('/setDress', router.setDress)
+   .post('/setDress', router.setDress)
+
+// 获取的信息 婚纱
+app.get('/getDress', router.getDress)
+   .post('/getDress', router.getDress)
+
+// 上传婚礼的图片信息
+app.get('/setwedding', router.setwedding)
+   .post('/setwedding', router.setwedding)
+// 获取的信息 婚礼
+app.get('/getwedding', router.getwedding)
+   .post('/getwedding', router.getwedding)
+
+
+
+
+
+
+
+
+
+
+
 
 
 

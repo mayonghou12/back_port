@@ -1,7 +1,7 @@
-const common = require('../mysql')
-const { myTour } =require('../mysql/common')
+const dress = require('../mysql')
+const { Dress } =require('../mysql/dress')
 
-const setTour = (req, res) => {
+const setDress = (req, res) => {
   //获取图片上传的信息，并存入数据库
   var info =req.query || req.body
   if(!info.title) {
@@ -32,7 +32,7 @@ const setTour = (req, res) => {
     })
     return false
   }
-  myTour([info.title, info.imgId, new Date(info.createTime), parseInt(info.status)],(data)=>{
+  Dress([info.title, info.imgId, new Date(info.createTime), parseInt(info.status)],(data)=>{
     res.json({
       data: data
     })
@@ -43,19 +43,15 @@ const setTour = (req, res) => {
   // })
 }
 
-const getTour = (req, res) => {
+const getDress = (req, res) => {
   // 查询数据库中的内容 并返回给前台
-  common.getTourData([], function(data) {
+  dress.getdressData([], function(data) {
     res.json(data)
   })
 }
 
-// const deleteTour = (req, res) => {
-//   console.log(req.Date)
-// }
 
 module.exports = {
-  setTour,
-  getTour
-  // deleteTour
+  setDress,
+  getDress
 }
