@@ -48,23 +48,11 @@ app.get('/getDress', router.getDress)
    .post('/getDress', router.getDress)
 
 // 上传婚礼的图片信息
-app.get('/setwedding', router.setwedding)
-   .post('/setwedding', router.setwedding)
+app.get('/setWedding', router.setWedding)
+   .post('/setWedding', router.setWedding)
 // 获取的信息 婚礼
-app.get('/getwedding', router.getwedding)
-   .post('/getwedding', router.getwedding)
-
-
-
-
-
-
-
-
-
-
-
-
+app.get('/getWedding', router.getWedding)
+   .post('/getWedding', router.getWedding)
 
 
 app.listen(3000)

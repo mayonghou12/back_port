@@ -1,5 +1,5 @@
-const dress = require('../mysql')
-const { Dress } =require('../mysql/dress')
+const Dress = require('../mysql')
+const { DressData } =require('../mysql/dress')
 
 const setDress = (req, res) => {
   //获取图片上传的信息，并存入数据库
@@ -32,7 +32,7 @@ const setDress = (req, res) => {
     })
     return false
   }
-  Dress([info.title, info.imgId, new Date(info.createTime), parseInt(info.status)],(data)=>{
+  DressData([info.title, info.imgId, new Date(info.createTime), parseInt(info.status)],(data)=>{
     res.json({
       data: data
     })
@@ -45,7 +45,7 @@ const setDress = (req, res) => {
 
 const getDress = (req, res) => {
   // 查询数据库中的内容 并返回给前台
-  dress.getdressData([], function(data) {
+  Dress.getDressData([], function(data) {
     res.json(data)
   })
 }

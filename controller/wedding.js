@@ -1,8 +1,8 @@
 // 婚礼
 const Wedding = require('../mysql')
-const { wedding } =require('../mysql/Wedding')
+const { WeddingData } =require('../mysql/wedding')
 
-const setwedding = (req, res) => {
+const setWedding = (req, res) => {
   //获取图片上传的信息，并存入数据库
   var info =req.query || req.body
   if(!info.title) {
@@ -33,25 +33,27 @@ const setwedding = (req, res) => {
     })
     return false
   }
-  wedding([info.title, info.imgId, new Date(info.createTime), parseInt(info.status)],(data)=>{
+  WeddingData([info.title, info.imgId, new Date(info.createTime), parseInt(info.status)],(data)=>{
     res.json({
       data: data
     })
   })
   // 参数都有了之后 操作数据库
-  // common.myTour([[info.title, info.imgId, new Date(info.createTime), parseInt(info.status)]], (data) => {
+  // Wedding.wedding([[info.title, info.imgId, new Date(info.createTime), parseInt(info.status)]], (data) => {
   //   res.json(data)
+  //   console.log('+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
+  //   console.log(data)
   // })
 }
 
-const getwedding = (req, res) => {
+const getWedding = (req, res) => {
   // 查询数据库中的内容 并返回给前台
-  Wedding.getweddingData([], function(data) {
+  Wedding.getWeddingData([], function(data) {
     res.json(data)
   })
 }
 
 module.exports = {
-  setwedding,
-  getwedding
+  setWedding,
+  getWedding
 }

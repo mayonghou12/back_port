@@ -1,6 +1,6 @@
 var query = require('./mysql')
 
-function Dress(data, callback) {
+function DressData(data, callback) {
   var sql = 'INSERT INTO bridal_veil(bv_title, img_id, bv_createTime, STATUS) VALUES(?)'
   query(sql, data).then((result) => {
       callback({
@@ -15,8 +15,7 @@ function Dress(data, callback) {
       })
 }
 
-function getdressData(data, callback) {
-  // var sql = "SELECT * FROM tour_photo LEFT JOIN img ON tour_photo.img_id = img.img_id ORDER BY tour_createTime DESC"
+function getDressData(data, callback) {
   var sql = 'SELECT * FROM bridal_veil LEFT JOIN img ON bridal_veil.img_id = img.img_id ORDER BY bv_createTime DESC'
   query(sql).then((result) => {
     callback({
@@ -29,6 +28,6 @@ function getdressData(data, callback) {
 }
 
 module.exports = {
-  Dress,
-  getdressData
+  DressData,
+  getDressData
 }
