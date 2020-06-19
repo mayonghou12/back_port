@@ -54,5 +54,13 @@ app.get('/setWedding', router.setWedding)
 app.get('/getWedding', router.getWedding)
    .post('/getWedding', router.getWedding)
 
+// 上传珠宝的图片信息
+app.get('/setJewel', router.setJewel)
+   .post('/setJewel', router.setJewel)
+// 获取的信息 珠宝
+app.get('/getJewel', router.getJewel)
+   .post('/getJewel', router.getJewel)
+
+
 
 app.listen(3000)
