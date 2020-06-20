@@ -1,38 +1,38 @@
 const Jewel = require('../mysql')
-const { JewelData } =require('../mysql/jewel')
+const { JewelData } = require('../mysql/jewel')
 
 const setJewel = (req, res) => {
-  //获取图片上传的信息，并存入数据库
-  var info =req.query || req.body
-  if(!info.title) {
+  // 获取图片上传的信息，并存入数据库
+  var info = req.query || req.body
+  if (!info.title) {
     res.json({
-        status: 503,
-        message: '请输入标题'
+      status: 503,
+      message: '请输入标题'
     })
     return false
   }
-  if(!info.imgId) {
+  if (!info.imgId) {
     res.json({
-        status: 502,
-        message: '请上传图片'
+      status: 502,
+      message: '请上传图片'
     })
     return false
   }
-  if(!info.createTime) {
+  if (!info.createTime) {
     res.json({
-        status: 504,
-        message: '请选择时间'
+      status: 504,
+      message: '请选择时间'
     })
     return false
   }
-  if(!info.status) {
+  if (!info.status) {
     res.json({
-        status: 502,
-        message: '请选择状态'
+      status: 502,
+      message: '请选择状态'
     })
     return false
   }
-  JewelData([info.title, info.imgId, new Date(info.createTime), parseInt(info.status)],(data)=>{
+  JewelData([info.title, info.imgId, new Date(info.createTime), parseInt(info.status)], (data) => {
     res.json({
       data: data
     })
@@ -41,11 +41,10 @@ const setJewel = (req, res) => {
 
 const getJewel = (req, res) => {
   // 查询数据库中的内容 并返回给前台
-  Jewel.getJewelData([], function(data) {
+  Jewel.getJewelData([], function (data) {
     res.json(data)
   })
 }
-
 
 module.exports = {
   setJewel,

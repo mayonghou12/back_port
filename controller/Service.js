@@ -1,13 +1,20 @@
-const Dress = require('../mysql')
-const { DressData } = require('../mysql/dress')
+const Service = require('../mysql')
+const { ServiceData } = require('../mysql/service')
 
-const setDress = (req, res) => {
+const setService = (req, res) => {
   // 获取图片上传的信息，并存入数据库
   var info = req.query || req.body
   if (!info.title) {
     res.json({
-      status: 503,
+      status: 507,
       message: '请输入标题'
+    })
+    return false
+  }
+  if (!info.text) {
+    res.json({
+      status: 503,
+      message: '请输入详情'
     })
     return false
   }
@@ -18,13 +25,6 @@ const setDress = (req, res) => {
     })
     return false
   }
-  if (!info.createTime) {
-    res.json({
-      status: 504,
-      message: '请选择时间'
-    })
-    return false
-  }
   if (!info.status) {
     res.json({
       status: 502,
@@ -32,7 +32,7 @@ const setDress = (req, res) => {
     })
     return false
   }
-  DressData([info.title, info.imgId, new Date(info.createTime), parseInt(info.status)], (data) => {
+  ServiceData([info.title, info.text, new Date(info.createTime), info.imgId, parseInt(info.status)], (data) => {
     res.json({
       data: data
     })
@@ -43,14 +43,14 @@ const setDress = (req, res) => {
   // })
 }
 
-const getDress = (req, res) => {
+const getService = (req, res) => {
   // 查询数据库中的内容 并返回给前台
-  Dress.getDressData([], function (data) {
+  Service.getServiceData([], function (data) {
     res.json(data)
   })
 }
 
 module.exports = {
-  setDress,
-  getDress
+  setService,
+  getService
 }

@@ -1,8 +1,9 @@
 /* eslint-disable standard/no-callback-literal */
 var query = require('./mysql')
 
-function WeddingData (data, callback) {
-  var sql = 'INSERT INTO wedding(wed_title, img_id, wed_createTime, STATUS) VALUES(?,?,?,?)'
+function HotelData (data, callback) {
+  console.log(data)
+  var sql = 'INSERT INTO hotel(hot_detail, img_id, hot_name, STATUS) VALUES(?,?,?,?)'
   query(sql, data).then((result) => {
     callback({
       status: 200,
@@ -16,8 +17,8 @@ function WeddingData (data, callback) {
   })
 }
 
-function getWeddingData (data, callback) {
-  var sql = 'SELECT * FROM wedding LEFT JOIN img ON wedding.img_id = img.img_id ORDER BY wed_createTime DESC'
+function getHotelData (data, callback) {
+  var sql = 'SELECT * FROM hotel LEFT JOIN img ON hotel.img_id = img.img_id'
   query(sql).then((result) => {
     callback({
       status: 200,
@@ -29,6 +30,6 @@ function getWeddingData (data, callback) {
 }
 
 module.exports = {
-  WeddingData,
-  getWeddingData
+  HotelData,
+  getHotelData
 }

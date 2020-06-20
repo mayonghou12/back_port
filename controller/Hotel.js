@@ -1,13 +1,14 @@
-const Dress = require('../mysql')
-const { DressData } = require('../mysql/dress')
+const Hotel = require('../mysql')
+const { HotelData } = require('../mysql/hotel')
 
-const setDress = (req, res) => {
+const setHotel = (req, res) => {
   // 获取图片上传的信息，并存入数据库
   var info = req.query || req.body
-  if (!info.title) {
+  console.log(info)
+  if (!info.text) {
     res.json({
       status: 503,
-      message: '请输入标题'
+      message: '请输入详情'
     })
     return false
   }
@@ -18,10 +19,10 @@ const setDress = (req, res) => {
     })
     return false
   }
-  if (!info.createTime) {
+  if (!info.name) {
     res.json({
       status: 504,
-      message: '请选择时间'
+      message: '请选择酒店名称'
     })
     return false
   }
@@ -32,7 +33,7 @@ const setDress = (req, res) => {
     })
     return false
   }
-  DressData([info.title, info.imgId, new Date(info.createTime), parseInt(info.status)], (data) => {
+  HotelData([info.text, info.imgId, info.name, parseInt(info.status)], (data) => {
     res.json({
       data: data
     })
@@ -43,14 +44,14 @@ const setDress = (req, res) => {
   // })
 }
 
-const getDress = (req, res) => {
+const getHotel = (req, res) => {
   // 查询数据库中的内容 并返回给前台
-  Dress.getDressData([], function (data) {
+  Hotel.getHotelData([], function (data) {
     res.json(data)
   })
 }
 
 module.exports = {
-  setDress,
-  getDress
+  setHotel,
+  getHotel
 }
