@@ -29,6 +29,7 @@ function getHotelData (data, callback) {
   })
 }
 
+
 module.exports = {
   HotelData,
   getHotelData

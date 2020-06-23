@@ -75,4 +75,19 @@ app.get('/setService', router.setService)
 // 获取的信息 咨询
 app.get('/getService', router.getService)
   .post('/getService', router.getService)
+
+app.get('/DeteleTour', router.DeteleTour)
+  .post('/DeteleTour', router.DeteleTour)
+
+  app.get('/DeteleTowTour', router.DeteleTowTour)
+  .post('/DeteleTowTour', router.DeteleTowTour)
+
+app.get('/FiltersTour', router.FiltersTour)
+  .post('/FiltersTour', router.FiltersTour)
+
+app.get('/FiltersTowTour', router.FiltersTowTour)
+  .post('FiltersTowTour', router.FiltersTowTour)
+
+  // 传入表名表名
+
 app.listen(3000)

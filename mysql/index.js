@@ -4,7 +4,11 @@ var Wedding = require('./wedding')
 var jewel = require('./jewel')
 var hotel = require('./hotel')
 var service = require('./service')
+var deleteTour = require('./deteleTour')
+var deleteTowTour = require('./deteleTowTour')
+var filtersTour = require('./filtersTour')
+var filtersTowTour = require('./filtersTowTour')
 
-var sqlImg = Object.assign({}, common, dress, Wedding, jewel, hotel, service)
+var sqlImg = Object.assign({}, common, dress, Wedding, jewel, hotel, service, filtersTour, filtersTowTour, deleteTour, deleteTowTour)
 
 module.exports = sqlImg
