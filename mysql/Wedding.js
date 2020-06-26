@@ -2,7 +2,7 @@
 var query = require('./mysql')
 
 function WeddingData (data, callback) {
-  var sql = 'INSERT INTO wedding(wed_title, img_id, wed_createTime, STATUS) VALUES(?,?,?,?)'
+  var sql = 'INSERT INTO wedding(wed_title, img_id, wed_createTime, STATUS, img_url) VALUES(?,?,?,?,?)'
   query(sql, data).then((result) => {
     callback({
       status: 200,
@@ -17,7 +17,7 @@ function WeddingData (data, callback) {
 }
 
 function getWeddingData (data, callback) {
-  var sql = 'SELECT * FROM wedding LEFT JOIN img ON wedding.img_id = img.img_id ORDER BY wed_createTime DESC'
+  var sql = 'SELECT * FROM wedding ORDER BY wed_createTime DESC'
   query(sql).then((result) => {
     callback({
       status: 200,

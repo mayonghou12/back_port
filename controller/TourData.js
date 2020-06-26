@@ -32,7 +32,7 @@ const setTour = (req, res) => {
     })
     return false
   }
-  myTour([info.title, info.imgId, new Date(info.createTime), parseInt(info.status)], (data) => {
+  myTour([info.title, info.imgId, new Date(info.createTime), parseInt(info.status), info.imgUrl], (data) => {
     res.json({
       data: data
     })

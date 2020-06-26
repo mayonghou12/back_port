@@ -33,17 +33,11 @@ const setWedding = (req, res) => {
     })
     return false
   }
-  WeddingData([info.title, info.imgId, new Date(info.createTime), parseInt(info.status)], (data) => {
+  WeddingData([info.title, info.imgId, new Date(info.createTime), parseInt(info.status), info.imgUrl], (data) => {
     res.json({
       data: data
     })
   })
-  // 参数都有了之后 操作数据库
-  // Wedding.wedding([[info.title, info.imgId, new Date(info.createTime), parseInt(info.status)]], (data) => {
-  //   res.json(data)
-  //   console.log('+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
-  //   console.log(data)
-  // })
 }
 
 const getWedding = (req, res) => {

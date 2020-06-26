@@ -2,7 +2,7 @@
 var query = require('./mysql')
 
 function DressData (data, callback) {
-  var sql = 'INSERT INTO bridal_veil(bv_title, img_id, bv_createTime, STATUS) VALUES(?,?,?,?)'
+  var sql = 'INSERT INTO bridal_veil(bv_title, img_id, bv_createTime, STATUS, img_url) VALUES(?,?,?,?,?)'
   query(sql, data).then((result) => {
     callback({
       status: 200,
@@ -17,7 +17,7 @@ function DressData (data, callback) {
 }
 
 function getDressData (data, callback) {
-  var sql = 'SELECT * FROM bridal_veil LEFT JOIN img ON bridal_veil.img_id = img.img_id ORDER BY bv_createTime DESC'
+  var sql = 'SELECT * FROM bridal_veil ORDER BY bv_createTime DESC'
   query(sql).then((result) => {
     callback({
       status: 200,

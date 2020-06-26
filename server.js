@@ -88,6 +88,16 @@ app.get('/FiltersTour', router.FiltersTour)
 app.get('/FiltersTowTour', router.FiltersTowTour)
   .post('FiltersTowTour', router.FiltersTowTour)
 
-  // 传入表名表名
+
+// 珠宝下一篇 上一篇
+app.get('/getJewelOne', router.getJewelOne)
+  .post('/getJewelOne', router.getJewelOne)
+
+// app.get('/setSelectTour', router.getSelectTour)
+//   .post('/setSelectTour', router.getSelectTour)
+
+
+// app.get('/getSelectTour', router.getSelectTour)
+//   .post('/getSelectTour', router.getSelectTour)
 
 app.listen(3000)

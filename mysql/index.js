@@ -8,7 +8,10 @@ var deleteTour = require('./deteleTour')
 var deleteTowTour = require('./deteleTowTour')
 var filtersTour = require('./filtersTour')
 var filtersTowTour = require('./filtersTowTour')
+var jewelOne = require('./jewelOne')
 
-var sqlImg = Object.assign({}, common, dress, Wedding, jewel, hotel, service, filtersTour, filtersTowTour, deleteTour, deleteTowTour)
+
+var sqlImg = Object.assign({}, common, dress, Wedding, jewel, hotel, service, 
+          filtersTour, filtersTowTour, deleteTour, deleteTowTour, jewelOne)
 
 module.exports = sqlImg

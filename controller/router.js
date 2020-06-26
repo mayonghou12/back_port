@@ -11,7 +11,9 @@ var DeleteTour = require('./DeteleTour')
 var DeleteTowTour = require('./DeteleTowTour')
 var FiltersTour = require('./FiltersTour')
 var FiltersTowTour = require('./FiltersTowTour')
+var JewelOne = require('./JewelOne')
 
-var router = Object.assign({}, common, TourData, Dress, Wedding, Jewel, Hotel, Service, FiltersTour,FiltersTowTour, DeleteTour, DeleteTowTour)
+var router = Object.assign({}, common, TourData, Dress, Wedding, Jewel, Hotel, 
+                Service, FiltersTour,FiltersTowTour, DeleteTour, DeleteTowTour, JewelOne)
 
 module.exports = router

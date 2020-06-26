@@ -4,6 +4,7 @@ const { DressData } = require('../mysql/dress')
 const setDress = (req, res) => {
   // 获取图片上传的信息，并存入数据库
   var info = req.query || req.body
+  console.log(info)
   if (!info.title) {
     res.json({
       status: 503,
@@ -32,7 +33,7 @@ const setDress = (req, res) => {
     })
     return false
   }
-  DressData([info.title, info.imgId, new Date(info.createTime), parseInt(info.status)], (data) => {
+  DressData([info.title, info.imgId, new Date(info.createTime), parseInt(info.status), info.imgUrl], (data) => {
     res.json({
       data: data
     })
