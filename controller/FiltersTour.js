@@ -2,7 +2,7 @@ const { FiltersTourData } = require('../mysql/filtersTour')
 
 const FiltersTour = (req, res) => {
   var info =req.query || req.body
-  console.log(info)
+
   if(!info.tour_id){
     res.json({
       status: 502,

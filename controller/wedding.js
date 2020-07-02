@@ -46,8 +46,15 @@ const getWedding = (req, res) => {
     res.json(data)
   })
 }
+const getWeddingSix = (req, res) => {
+  // 查询数据库中的内容 并返回给前台
+  Wedding.getWeddingsix([], function (data) {
+    res.json(data)
+  })
+}
 
 module.exports = {
   setWedding,
-  getWedding
+  getWedding,
+  getWeddingSix
 }

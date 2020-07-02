@@ -43,7 +43,19 @@ function myTour (data, callback) {
 }
 
 function getTourData (data, callback) {
-  var sql = 'SELECT * FROM tour_photo ORDER BY tour_createTime DESC'
+  var sql = 'SELECT * FROM tour_photo ORDER BY tour_createTime ASC'
+  query(sql).then((result) => {
+    callback({
+      status: 200,
+      data: {
+        list: result
+      }
+    })
+  })
+}
+
+function getTourthree(data, callback) {
+  var sql = 'SELECT * FROM tour_photo ORDER BY tour_createTime ASC limit 0,3'
   query(sql).then((result) => {
     callback({
       status: 200,
@@ -57,5 +69,6 @@ function getTourData (data, callback) {
 module.exports = {
   myImg,
   myTour,
-  getTourData
+  getTourData,
+  getTourthree
 }

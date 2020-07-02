@@ -2,7 +2,7 @@ const { FiltersTowTourData } = require('../mysql/filtersTowTour')
 
 const FiltersTowTour = (req, res) => {
   var info =req.query || req.body
-  console.log(info)
+
   if(!info.hot_id){
     res.json({
       status: 502,

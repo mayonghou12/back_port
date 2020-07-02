@@ -2,8 +2,7 @@
 var query = require('./mysql')
 
 function HotelData (data, callback) {
-  console.log(data)
-  var sql = 'INSERT INTO hotel(hot_detail, img_id, hot_name, STATUS) VALUES(?,?,?,?)'
+  var sql = 'INSERT INTO hotel(hot_detail, hot_name, img_id, STATUS) VALUES(?,?,?,?)'
   query(sql, data).then((result) => {
     callback({
       status: 200,

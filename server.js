@@ -32,9 +32,13 @@ app.post('/upload', uploaderMulter.array('file', 8), router.upload)
 app.get('/setTour', router.setTour)
   .post('/setTour', router.setTour)
 
+// 首页显示的旅拍
+app.get('/getTourThree',router.getTourThree)
+
 // 获取的信息 Tour-photo
 app.get('/getTour', router.getTour)
   .post('/getTour', router.getTour)
+
 
 // 删除 tour_photo 信息
 // app.get('/deleteTour', router.deleteTour)
@@ -54,6 +58,9 @@ app.get('/setWedding', router.setWedding)
 // 获取的信息 婚礼
 app.get('/getWedding', router.getWedding)
   .post('/getWedding', router.getWedding)
+
+// 获取首页的婚礼
+app.get('/getWeddingSix',router.getWeddingSix)
 
 // 上传珠宝的图片信息
 app.get('/setJewel', router.setJewel)
@@ -93,11 +100,5 @@ app.get('/FiltersTowTour', router.FiltersTowTour)
 app.get('/getJewelOne', router.getJewelOne)
   .post('/getJewelOne', router.getJewelOne)
 
-// app.get('/setSelectTour', router.getSelectTour)
-//   .post('/setSelectTour', router.getSelectTour)
-
-
-// app.get('/getSelectTour', router.getSelectTour)
-//   .post('/getSelectTour', router.getSelectTour)
 
 app.listen(3000)

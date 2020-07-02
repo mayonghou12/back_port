@@ -17,7 +17,7 @@ function JewelData (data, callback) {
 }
 
 function getJewelData (data, callback) {
-  var sql = 'SELECT * FROM jewel LEFT JOIN img ON jewel.img_id = img.img_id ORDER BY jew_createTime DESC'
+  var sql = 'SELECT * FROM jewel LEFT JOIN img ON jewel.img_id = img.img_id ORDER BY jew_createTime ASC'
   query(sql).then((result) => {
     callback({
       status: 200,

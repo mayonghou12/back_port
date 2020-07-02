@@ -50,12 +50,14 @@ const getTour = (req, res) => {
   })
 }
 
-// const deleteTour = (req, res) => {
-//   console.log(req.Date)
-// }
+const getTourThree = (req, res) => {
+  common.getTourthree([], function (data) {
+    res.json(data)
+  })
+}
 
 module.exports = {
   setTour,
-  getTour
-  // deleteTour
+  getTour,
+  getTourThree
 }

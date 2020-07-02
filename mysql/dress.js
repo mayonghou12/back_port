@@ -17,7 +17,7 @@ function DressData (data, callback) {
 }
 
 function getDressData (data, callback) {
-  var sql = 'SELECT * FROM bridal_veil ORDER BY bv_createTime DESC'
+  var sql = 'SELECT * FROM bridal_veil ORDER BY bv_createTime ASC'
   query(sql).then((result) => {
     callback({
       status: 200,

@@ -28,7 +28,19 @@ function getWeddingData (data, callback) {
   })
 }
 
+function getWeddingsix (data, callback) {
+  var sql = 'SELECT * FROM wedding ORDER BY wed_createTime ASC limit 0,6'
+  query(sql).then((result) => {
+    callback({
+      status: 200,
+      data: {
+        list: result
+      }
+    })
+  })
+}
 module.exports = {
   WeddingData,
-  getWeddingData
+  getWeddingData,
+  getWeddingsix
 }
